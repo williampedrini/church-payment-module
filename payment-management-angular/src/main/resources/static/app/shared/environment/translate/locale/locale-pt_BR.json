@@ -1,0 +1,577 @@
+{
+  "application": {
+    "bead" : {
+      "catalog": {
+        "button": {
+          "addBead": "+ Talão"
+        },
+        "label": {
+          "title": "Lista de Talões"
+        },
+        "message": {
+          "successDeletion": "Talão removido com sucesso."
+        },
+        "modal": {
+          "beadDeletion": {
+            "title" : "Confirmação de exclusão de talão",
+            "body": "Todas as contibuções associadas serão removidas. Tem certeza que deseja remover o talão selecionado?"
+          }
+        },
+        "table": {
+            "bead": {
+              "column": {
+                "identificationNumber": "Número de identificação",
+                "campaign": "Campanha"
+              },
+              "message": {
+                "empty": "Nenhum talão encontrado"
+              }
+            }
+        }
+      },
+      "messages": {
+        "duplicated": "Já existe um talão para a campanha selecionada.",
+        "campaign": {
+          "empty": "A Campanha é obrigatória."
+        },
+        "contributor" : {
+          "empty": "O Contribuinte é obrigatório."
+        },
+        "identificationNumber": {
+          "empty": "O Número de Indentificação Fiscal é obrigatório."
+        }
+      },
+      "register": {
+        "form": {
+          "field": {
+            "identificationNumber": "Número de indentificação",
+            "contributor": "Contribuinte",
+            "campaign": "Campanha"
+          },
+          "button": {
+            "saveBead": "Salvar"
+          }
+        },
+        "label": {
+          "title": "Registro de Talão"
+        },
+        "message": {
+          "successCreation": "Talão criado com sucesso.",
+          "successUpdate": "Talão atualizado com sucesso."
+        }
+      }
+    },
+    "campaign": {
+      "catalog": {
+        "title": {
+          "titlePage": "Campanha"
+        },
+        "button": {
+          "addCampaign": "+ Campanha",
+          "filterCampaign": "Buscar",
+          "clearFilter": "Limpar"
+        },
+        "label": {
+          "title": "Listagem de Campanhas"
+        },
+        "form": {
+          "field": {
+            "campaign": {
+              "placeholder": "Nome da campanha"
+            }
+          }
+        },
+        "message": {
+          "successDeletion": "Campanha removida com sucesso."
+        },
+        "modal": {
+          "campaignDeletion": {
+            "title" : "Confirmação de exclusão de campanha",
+            "body": "Todos os talões e contribuições associadas serão removidas. Tem certeza que deseja remover a campanha selecionada?"
+          }
+        },
+        "table": {
+          "campaign": {
+            "column": {
+              "name": "Nome",
+              "creationDate": "Data de Criação",
+              "initialDate": "Data de Inicio",
+              "finalDate": "Data de Termino",
+              "provingType": "Tipo de Pagamento"
+            },
+            "message": {
+              "empty": "Nenhuma campanha encontrada"
+            }
+          }
+        }
+      },
+      "messages": {
+        "creationDate": {
+          "empty": "A Data de Criação é obrigatória."
+        },
+        "church": {
+          "empty": "A Igreja é obrigatória."
+        },
+        "date": {
+          "range": {
+            "invalid": "A data inicial deve ser menor ou igual do que a final."
+          }
+        },
+        "finalDate": {
+          "invalid": "A data final não pode ser menor que data de hoje."
+        },
+        "initialDate": {
+          "empty": "A Data Inicial é obrigatória."
+        },
+        "name": {
+          "empty": "O Nome é obrigatório.",
+          "duplicated": "Já existe uma campanha com o nome definido."
+        },
+        "provingType": {
+          "empty": "O Tipo de Comprovante de Pagamento é obrigatório.",
+          "changed": "O tipo de Comprovante de Pagamento não pode ser modificado."
+        }
+      },
+      "register": {
+        "title": {
+          "titlePage": "Registrar campanha"
+        },
+        "label": {
+          "title": "Registro de Campanha"
+        },
+        "form": {
+          "field": {
+            "id": "ID",
+            "name": "Nome",
+            "creationDate": "Data de Criação",
+            "initialDate": "Data de Inicio",
+            "finalDate": "Data de Termino",
+            "church": {
+              "label": "Igreja",
+              "default": "Selecione..."
+            },
+            "provingType": {
+              "label": "Tipo de Pagamento",
+              "default": "Selecione..."
+            }
+          },
+          "button": {
+            "saveCampaign": "Salvar"
+          }
+        },
+        "message": {
+          "successCreation": "Campanha criada com sucesso.",
+          "successUpdate": "Campanha atualizada com sucesso."
+        }
+      }
+    },
+    "church": {
+      "catalog": {
+        "label": {
+          "title": "Listagem de Igrejas"
+        }
+      },
+      "messages": {
+        "name": {
+          "empty": "O Nome é obrigatório."
+        }
+      }
+    },
+    "contribution": {
+      "calculator": {
+        "button": {
+          "download": "Exportar"
+        },
+        "table": {
+          "result": {
+            "column": {
+              "campaign": "Campanha",
+              "monthYear": "Periodo",
+              "total": "Total"
+            },
+            "message": {
+              "empty": "Nenhum resultado encontrado"
+            }
+          }
+        }
+      },
+      "catalog": {
+        "title": {
+          "titlePage": "Contribuição"
+        },
+        "button": {
+          "addContribution": "+ Contribuição",
+          "filterContribution": "Buscar",
+          "clearFilter": "Limpar",
+          "download": "Exportar"
+        },
+        "label": {
+          "title": "Listagem de Contribuições"
+        },
+        "form": {
+          "field": {
+            "bead": {
+              "placeholder": "Número do talão"
+            },
+            "campaign": {
+              "placeholder": "Nome da campanha"
+            },
+            "contributor": {
+              "placeholder": "Nome do contribuinte"
+            },
+            "creationDateTo": "até"
+          }
+        },
+        "message": {
+          "successDeletion": "Contribuição removida com sucesso."
+        },
+        "modal": {
+          "contributionDeletion": {
+            "title" : "Confirmação de exclusão de contribuição",
+            "body": "Tem certeza que deseja remover a contribuição selecionada?"
+          }
+        },
+        "table": {
+          "contribution": {
+            "column": {
+              "beadNumber": "Talão",
+              "campaignName": "Campanha",
+              "creationDate": "Data de Lançamento",
+              "contributorName": "Contribuinte",
+              "amount": "Quantia",
+              "observation": "Observação"
+            },
+            "message": {
+              "empty": "Nenhuma contribuição encontrada"
+            }
+          }
+        }
+      },
+      "messages": {
+        "creationDate": {
+          "empty": "A Data de Lançamento é obrigatória.",
+          "invalid": "A Data de Lançamento deve ser menor do que a data de termino da campanha."
+        },
+        "amount": {
+          "empty": "A quantia da contribuição não pode ser zero."
+        },
+        "campaign": {
+          "empty": "A Campanha é obrigatória.",
+          "expired": "Não é possível associar uma contibuição a uma campanha que terminou."
+        },
+        "contributor": {
+          "empty": "O Contribuinte é obrigatório."
+        },
+        "bead": {
+          "empty": "O Contribuinte não tem um talão associado a campanha selecionada."
+        }
+      },
+      "register": {
+        "title": {
+          "titlePage": "Registrar contribuição"
+        },
+        "label": {
+          "title": "Registro de Contribuição"
+        },
+        "form": {
+          "field": {
+            "bead": "Número do Talão",
+            "contributor": {
+              "label": "Contribuinte",
+              "default": "Selecione..."
+            },
+            "campaign": {
+              "label": "Campanha",
+              "default": "Selecione..."
+            },
+            "creationDate": "Data de Lançamento",
+            "amount": "Quantia",
+            "observation": "Observação"
+          },
+          "button": {
+            "saveContribution": "Salvar",
+            "fill": "Preencher"
+          }
+        },
+        "message": {
+          "automaticFill": {
+            "campaign": {
+              "provingType": "O preenchimento automático é efetuado apenas para campanhas com tipo de pagamento igual a 'Talão'."
+            },
+            "mandatory": "O preenchimento automático é válido apenas para as combinações: ( Número do Talão + Campanha ) ou ( Campanha + Contribuinte )."
+          },
+          "successCreation": "Contribuição registrada com sucesso.",
+          "successUpdate": "Contribuição atualizada com sucesso."
+        }
+      }
+    },
+    "contributor": {
+      "catalog": {
+        "title": {
+          "titlePage": "Contribuinte"
+        },
+        "button": {
+          "addContributor": "+ Contribuinte",
+          "filterContributor": "Buscar",
+          "clearFilter": "Limpar",
+          "download": "Exportar"
+        },
+        "form": {
+          "field": {
+            "celebration": {
+              "default": "Selecione tipo de celebração...",
+              "birthday": "Aniversário",
+              "marriage": "Casamento"
+            },
+            "contributor": {
+              "placeholder": "Nome do contribuinte"
+            },
+            "creationDateTo": "até"
+          }
+        },
+        "label": {
+          "title": "Listagem de Contribuintes"
+        },
+        "messages": {
+          "celebration": {
+            "empty": "O tipo de celebração é obrigatório.",
+            "dateRange": {
+              "empty": "As datas de inicio e fim de comemoração são obrigatórias.",
+              "invalid": "O intervalo de data esta inválido."
+            },
+            "downloadDateRange": "Por favor, efetue uma busca com os filtros 'data inicial', 'data final' e 'tipo' preenchidos para gerar o relatório de comemorações."
+          }
+        },
+        "modal": {
+          "contributorDeletion": {
+            "title" : "Confirmação de exclusão de contribuinte",
+            "body": "Todas as contribuições e talões associados serão removidos. Tem certeza que deseja remover o contribuinte selecionado?"
+          }
+        },
+        "table": {
+          "contributor": {
+            "column": {
+              "name": "Nome",
+              "address": "Endereço",
+              "cellphone": "Celular",
+              "registerDate": "Data de cadastro",
+              "birthDate": "Data de nascimento",
+              "marriageDate": "Data de matrimônio",
+              "celebration": "Comemoração",
+              "download": {
+                "tooltip": "Download Contribuições"
+              }
+            },
+            "message": {
+              "empty": "Nenhum contribuinte encontrado"
+            }
+          }
+        }
+      },
+      "label": {
+        "civilState": {
+          "divorced": "Divorciado(a)",
+          "married": "Casado(a)",
+          "single": "Solteiro(a)",
+          "stableUnion": "União Estável",
+          "widower": "Viúvo(a)"
+        },
+        "gender": {
+          "female": "Feminino",
+          "male": "Masculino"
+        },
+        "download": {
+          "default": "Selectione...",
+          "tag": "Etiquetas",
+          "celebration": "Comemorações",
+          "contribution": "Contribuições"
+        }
+      },
+      "messages": {
+        "name": {
+          "empty": "O Nome é obrigatório."
+        },
+        "gender": {
+          "size": "O tamanho do campo Gênero está errado.",
+          "empty": "O Gênero é obrigatório."
+        },
+        "civilState": {
+          "size": "O tamanho do campo Estado Civil está errado.",
+          "empty": "O Estado Civil é obrigatório."
+        },
+        "creationDate": {
+          "empty": "A data de criação é obrigatória."
+        },
+        "address": {
+          "empty": "O Endereço é obrigatório."
+        },
+        "birthDate": {
+          "empty": "A Data de Nascimento é obrigatória."
+        },
+        "marriageDate": {
+          "empty": "A Data de Casamento é obrigatória para os estados civis 'Casado' e 'União Estável'."
+        },
+        "partnerName": {
+          "empty": "O nome do cônjuge é obrigatório para os estados civis 'Casado' e 'União Estável'."
+        }
+      },
+      "register": {
+        "title": {
+          "titlePage": "Registrar contribuinte"
+        },
+        "label": {
+          "title": "Registro de Contribuinte"
+        },
+        "message": {
+          "successCreation": "Contribuinte criado com sucesso.",
+          "successDeletion": "Contribuinte removido com sucesso.",
+          "successUpdate": "Contribuinte atualizado com sucesso.",
+          "successBeadDeletion": "Talão removido com sucesso."
+        },
+        "modal": {
+          "beadDeletion": {
+            "title" : "Confirmação de exclusão de talão",
+            "body": "Tem certeza que deseja remover o talão selecionado?"
+          }
+        },
+        "form": {
+          "field": {
+            "id": "ID",
+            "name": "Nome",
+            "gender": "Gênero",
+            "birthDate": "Data de Nascimento",
+            "civilState": {
+              "label": "Estado Civil",
+              "default": "Selecione..."
+            },
+            "partnerName": "Nome do cônjuge",
+            "marriageDate": "Data de Casamento",
+            "address": "Endereço",
+            "telephone": "Telefone",
+            "cellphone": "Celular"
+          },
+          "button": {
+            "addCampaign": "+ Campanha",
+            "deleteContributor": "Excluir",
+            "saveContributor": "Salvar"
+          }
+        }
+      }
+    },
+    "error": {
+      "unknown": "Ocorreu um erro inesperado, por favor contacte o Administrador.",
+      "resource": {
+        "notFound": "Não existem resultados para a busca efetuada."
+      }
+    },
+    "home": {
+      "label": {
+        "title": "Inicio"
+      },
+      "table": {
+        "contribution": {
+          "calculator": {
+            "title": "Total de Lançamentos"
+          },
+          "catalog": {
+            "title": "Ultimos Lançamentos"
+          }
+        },
+        "contributor": {
+          "title": "Últimos Contribuintes Cadastrados"
+        }
+      }
+    },
+    "menu": {
+      "campaign": "Campanha",
+      "contributor": "Contribuinte",
+      "contribution": "Contribuição",
+      "church": "Igreja",
+      "home": "Início",
+      "logout": "Logout",
+      "reports": {
+        "contributions": "Relatório de Contribuições"
+      }
+    },
+    "modal": {
+        "button": {
+          "cancel": "Cancelar",
+          "ok": "Sim",
+          "save": "Salvar"
+        }
+    },
+    "provingType": {
+      "catalog": {
+        "label": {
+          "title": "Listagem de Tipos de Registro de Pagamento"
+        }
+      },
+      "messages": {
+        "mnemonic": {
+          "empty": "A Sigla é obrigatória."
+        },
+        "name": {
+          "empty": "O Nome é obrigatório."
+        }
+      }
+    },
+    "role": {
+      "messages": {
+        "empty": "A Sigla é obrigatória.",
+        "size": "O Tamanho da Sigla deve estar entre 3 à 5 caracteres."
+      }
+    },
+    "report": {
+      "messages": {
+        "filter": {
+          "celebration": {
+            "empty": "O preenchimento do filtro de celebração é obrigatório."
+          },
+          "empty": "O preenchimento do filtro é obrigatório.",
+          "identifier": {
+            "empty": "Não existe nenhum contribuinte para gerar o relatório."
+          },
+          "dateRange": {
+            "empty": "O preenchimento do intervalo de data de celebração é obrigatório.",
+            "invalid": "O intervalo de data de celebração definido não é válido."
+          },
+          "resource": {
+            "notFound": "O contribuinte não foi encontrado para gerar o relatório."
+          }
+        },
+        "unknown": "Erro ao exportar o relatório."
+      }
+    },
+    "user": {
+      "messages": {
+        "lastName": {
+          "empty": "O Sobrenome é obrigatório."
+        },
+        "name": {
+          "empty": "O nome é obrigatório."
+        },
+        "password": {
+          "empty": "A Senha é obrigatória.",
+          "size": "O Tamanho da Senha deve estar entre 6 à 10 caracteres."
+        },
+        "role": {
+          "empty": "Ao menos uma Permissão é obrigatória."
+        },
+        "username": {
+          "empty": "O Username é obrigatório.",
+          "size": "O Tamanho do Username deve estar entre 6 à 10 caracteres."
+        }
+      },
+      "catalog": {
+        "label": {
+          "title": "Listagem de Usuários"
+        }
+      },
+      "register": {
+        "label": {
+          "title": "Registro de Usuário"
+        }
+      }
+    }
+  }
+}

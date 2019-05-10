@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="./build/assets/images/logo.png"/></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li data-ui-sref-active-eq="active"><a data-ui-sref="application.home">{{ 'application.menu.home' | translate }}</a></li>
+        <li data-ng-class="{active:$state.includes('application.campaign')}"><a data-ui-sref="application.campaign">{{ 'application.menu.campaign' | translate }}</a></li>
+        <li data-ng-class="{active:$state.includes('application.contributor')}"><a data-ui-sref="application.contributor">{{ 'application.menu.contributor' | translate }}</a></li>
+        <li data-ng-class="{active:$state.includes('application.contribution')}"><a data-ui-sref="application.contribution">{{ 'application.menu.contribution' | translate }}</a></li>
+        <li data-ui-sref-active-eq="active"><a role="button" data-ng-click="vm.logoutOnClick()">{{ 'application.menu.logout' | translate }}</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

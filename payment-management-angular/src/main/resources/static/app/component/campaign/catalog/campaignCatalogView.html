@@ -1,0 +1,71 @@
+<section data-ui-view>
+  <div class="container" data-ng-init="vm.onInit()">
+    <div class="col-xs-12 col-md-12 col-lg-12 text-center">
+      <h2>{{ 'application.campaign.catalog.title.titlePage' | translate }}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="filters">
+        <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <input id="campaignCatalogFieldName" type="text" class="form-control" data-ng-model="vm.filter.name"
+                   placeholder="{{ 'application.campaign.catalog.form.field.campaign.placeholder' | translate }}">
+          </div>
+          <div class="form-group col-xs-12 col-sm-4 col-md-4 col-lg-4 padding0-left">
+            <a class="btn btn-secondary" data-ng-click="vm.clearFilter()" role="button">
+              {{ 'application.campaign.catalog.button.clearFilter' | translate }}
+            </a>
+            <a class="btn btn-secondary" data-ng-click="vm.findAll(vm.filter)" role="button">
+              {{ 'application.campaign.catalog.button.filterCampaign' | translate }}
+            </a>
+          </div>
+          <div class="form-group col-xs-12 col-md-6 col-lg-6 padding0">
+            <a class="btn btn-primary pull-right" data-ui-sref="application.campaign.register" role="button">
+              {{ 'application.campaign.catalog.button.addCampaign' | translate }}
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>{{ 'application.campaign.catalog.table.campaign.column.name' | translate }}</th>
+            <th>{{ 'application.campaign.catalog.table.campaign.column.creationDate' | translate }}</th>
+            <th>{{ 'application.campaign.catalog.table.campaign.column.initialDate' | translate }}</th>
+            <th>{{ 'application.campaign.catalog.table.campaign.column.finalDate' | translate }}</th>
+            <th>{{ 'application.campaign.catalog.table.campaign.column.provingType' | translate }}</th>
+            <th></th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-show="vm.campaigns.length > 0" data-dir-paginate="campaign in vm.campaigns | itemsPerPage:10">
+              <td>{{campaign.name}}</td>
+              <td>{{campaign.creationDate | date:'dd/MM/yyyy'}}</td>
+              <td>{{campaign.initialDate | date:'dd/MM/yyyy'}}</td>
+              <td>{{campaign.finalDate | date:'dd/MM/yyyy'}}</td>
+              <td>{{campaign.provingType.name}}</td>
+              <td>
+                  <span class="glyphicon glyphicon-pencil" role="button" aria-hidden="true"
+                        data-ui-sref="application.campaign.register({idCampaign: campaign.id})">
+                  </span>
+              </td>
+              <td>
+                  <span class="glyphicon glyphicon-trash" role="button" aria-hidden="true"
+                        data-ng-click="vm.setCampaignToDelete(campaign.id, $index);vm.openDeleteConfirmationModal();">
+                  </span>
+              </td>
+            </tr>
+            <tr data-ng-show="vm.campaigns.length === 0">
+              <td colspan="7">
+                {{ 'application.campaign.catalog.table.campaign.message.empty' | translate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <dir-pagination-controls data-boundary-links="true" data-direction-links="true" ></dir-pagination-controls>
+      </div>
+    </div>
+  </div>
+</section>

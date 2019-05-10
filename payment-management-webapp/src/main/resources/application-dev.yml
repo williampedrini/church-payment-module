@@ -1,0 +1,43 @@
+# ==============
+# = Data Source
+# ==============
+spring:
+  datasource:
+    url: jdbc:h2:mem:saojoaquim;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL;
+    platform: h2
+    username: PAYMENT-MANAGEMENT
+    password: PAYMENT-MANAGEMENT
+    driverClassName: org.h2.Driver
+
+# ==================
+# = Jpa / Hibernate
+# ==================
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+
+# ==============
+# = H2 settings
+# ==============
+  h2:
+    console:
+      enabled: true
+      path: /console
+      settings:
+        trace: false
+        web-allow-others: false
+
+# ===================
+# = Logging Settings
+# ===================
+logging:
+    level:
+      root: INFO
+      web: ERROR
+      org.hibernate: INFO

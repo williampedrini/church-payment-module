@@ -1,0 +1,26 @@
+# ==============
+# = Data Source
+# ==============
+spring:
+  datasource:
+    url: ${CLEARDB_DATABASE_URL}
+    platform: mysql
+    username: ${CLEARDB_DATABASE_USERNAME}
+    password: ${CLEARDB_DATABASE_PASSWORD}
+    driverClassName: com.mysql.jdbc.Driver
+    initialize: false
+
+# ==================
+# = Jpa / Hibernate
+# ==================
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+# ===================
+# = Logging Settings
+# ===================
+logging:
+    level:
+      root: INFO
+      web: ERROR
+      org.hibernate: INFO

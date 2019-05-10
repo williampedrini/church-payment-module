@@ -1,0 +1,98 @@
+<section data-ng-init="vm.onInit()" class="container padding30-lat">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center padding0">
+    <h2>{{ 'application.contribution.register.title.titlePage' | translate }}</h2>
+  </div>
+    <form id="contributionRegisterForm" name="contributionRegisterForm"
+          data-ng-submit="contributionRegisterForm.$valid && vm.saveContributionOnClick()" novalidate>
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="contributionRegisterBeadNumber">
+                    {{ 'application.contribution.register.form.field.bead' | translate }}
+                </label>
+                <input id="contributionRegisterBeadNumber" name="contributionRegisterBeadNumber" type="text"
+                       class="form-control" data-ng-model="vm.bead.identificationNumber"
+                       data-ng-disabled="vm.isBeadNumberFieldDisabled()">
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="contributionRegisterContributor" class="required">
+                    {{ 'application.contribution.register.form.field.contributor.label' | translate }}
+                </label>
+                <select id="contributionRegisterContributor" name="contributionRegisterContributor" class="form-control"
+                        data-ng-options="contributor.id as contributor.name for contributor in vm.contributors"
+                        data-ng-model="vm.contribution.contributor.id" data-ng-required="true"
+                        data-ng-disabled="vm.isContributorFieldDisabled()" >
+                    <option value="">
+                        {{ 'application.contribution.register.form.field.contributor.default' | translate }}
+                    </option>
+                </select>
+                <div data-ng-show="vm.hasError('contributionRegisterContributor', 'required')" class="invalid">
+                    {{ 'application.contribution.messages.contributor.empty' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="contributionRegisterCampaign" class="required">
+                    {{ 'application.contribution.register.form.field.campaign.label' | translate }}
+                </label>
+                <select id="contributionRegisterCampaign" name="contributionRegisterCampaign" class="form-control"
+                        data-ng-options="campaign.id as campaign.name for campaign in vm.campaigns"
+                        data-ng-model="vm.contribution.campaign.id" data-ng-required="true"
+                        data-ng-disabled="vm.isCampaignFieldDisabled()">
+                    <option value="">
+                        {{ 'application.contribution.register.form.field.campaign.default' | translate }}
+                    </option>
+                </select>
+                <div data-ng-show="vm.hasError('contributionRegisterCampaign', 'required')" class="invalid">
+                    {{ 'application.contribution.messages.campaign.empty' | translate }}
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="contributionRegisterCreationDate" class="required">
+                    {{ 'application.contribution.register.form.field.creationDate' | translate }}
+                </label>
+                <input id="contributionRegisterCreationDate" name="contributionRegisterCreationDate" type="date"
+                       class="form-control" data-ng-model="vm.contribution.creationDate">
+                <div data-ng-show="vm.hasError('contributionRegisterCreationDate', 'required')" class="invalid">
+                    {{ 'application.contribution.messages.creationDate.empty' | translate }}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <label for="contributionRegisterAmount" class="required">
+                    {{ 'application.contribution.register.form.field.amount' | translate }}
+                </label>
+                <input id="contributionRegisterAmount" name="contributionRegisterAmount" type="text"
+                       class="form-control" data-ng-model="vm.contribution.amount"
+                       data-money-mask data-money-mask-prepend="R$">
+                <div data-ng-show="vm.amountFieldHasError()" class="invalid">
+                    {{ 'application.contribution.messages.amount.empty' | translate }}
+                </div>
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <label for="formControlTextarea">
+                {{ 'application.contribution.register.form.field.observation' | translate }}
+              </label>
+              <textarea class="form-control" id="formControlTextarea" rows="3"
+                        data-ng-model="vm.contribution.observation">
+              </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="form-group pull-right">
+                    <button class="btn btn-primary" type="submit">
+                        {{ 'application.contribution.register.form.button.saveContribution' | translate }}
+                    </button>
+                </div>
+                <div class="form-group pull-right padding-right-10">
+                    <a class="btn btn-secondary btn-block" data-ng-click="vm.fillOut()"
+                       data-ng-disabled="vm.isAutomaticFillButtonDisabled()">
+                        {{ 'application.contribution.register.form.button.fill' | translate }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

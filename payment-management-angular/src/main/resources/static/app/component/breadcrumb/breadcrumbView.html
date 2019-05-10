@@ -1,0 +1,6 @@
+<ol class="breadcrumb">
+    <li ng-repeat="step in vm.steps" ng-class="{ active: $last }" ng-switch="!!step.abstract">
+        <a ng-switch-when="false" ui-sref="{{ step.sref }}" ui-sref-opts="step.stateOptions">{{ step.label | translate }}</a>
+        <span ng-switch-when="true">{{ step.label | translate }}</span>
+    </li>
+</ol>

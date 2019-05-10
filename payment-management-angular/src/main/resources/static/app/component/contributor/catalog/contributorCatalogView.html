@@ -1,0 +1,106 @@
+<section data-ui-view>
+  <div class="container" data-ng-init="vm.onInit()">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center padding0">
+      <h2>{{ vm.title | translate }}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+      <div class="filters">
+        <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <input id="contributorCatalogFieldName" type="text" class="form-control" data-ng-model="vm.filter.name"
+                   placeholder="{{ 'application.contributor.catalog.form.field.contributor.placeholder' | translate }}">
+          </div>
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <select id="contributorRegisterFieldCelebration" name="contributorRegisterFieldCelebration"
+                    class="form-control" data-ng-model="vm.filter.celebration">
+              <option value="">
+                {{ 'application.contributor.catalog.form.field.celebration.default' | translate }}
+              </option>
+              <option data-ng-repeat="celebration in vm.celebration" value="{{celebration.value}}">
+                {{celebration.label | translate}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group form-inline col-xs-12 col-sm-4 col-md-4 col-lg-4 padding0">
+            <input id="contributionCatalogFieldBeginDate" type="date" step="0" class="form-control dateclass"
+                   data-ng-model="vm.filter.beginDate" data-ng-change="vm.buildDownloadUrl()">
+            {{ 'application.contributor.catalog.form.field.creationDateTo' | translate }}
+            <input id="contributionCatalogFieldEndDate" type="date" class="form-control dateclass"
+                   data-ng-model="vm.filter.endDate" data-ng-change="vm.buildDownloadUrl()">
+          </div>
+          <div class="form-group col-xs-12 col-sm-3 col-md-2 col-lg-2 padding0">
+            <a class="btn btn-secondary" data-ng-click="vm.clearFilter()" role="button">
+              {{ 'application.contributor.catalog.button.clearFilter' | translate }}
+            </a>
+            <a class="btn btn-secondary" data-ng-click="vm.findAll(vm.filter)" role="button">
+              {{ 'application.contributor.catalog.button.filterContributor' | translate }}
+            </a>
+          </div>
+          <div data-ng-show="!vm.readOnly" class="form-group col-xs-12 col-sm-2 col-sm-2 col-md-2 col-lg-2 padding0">
+            <a class="btn btn-primary pull-right" data-ui-sref="application.contributor.register" role="button">
+              {{ 'application.contributor.catalog.button.addContributor' | translate }}
+            </a>
+          </div>
+        </form>
+      </div>
+      <div class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>{{ 'application.contributor.catalog.table.contributor.column.name' | translate }}</th>
+            <th>{{ 'application.contributor.catalog.table.contributor.column.address' | translate }}</th>
+            <th>{{ 'application.contributor.catalog.table.contributor.column.cellphone' | translate }}</th>
+            <th>{{ 'application.contributor.catalog.table.contributor.column.birthDate' | translate }}</th>
+            <th>{{ 'application.contributor.catalog.table.contributor.column.marriageDate' | translate }}</th>
+            <th data-ng-show="!vm.readOnly"></th>
+            <th data-ng-show="!vm.readOnly"></th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr data-ng-show="vm.contributors.length > 0" data-dir-paginate="contributor in vm.contributors | itemsPerPage:10">
+              <td>{{contributor.name}}</td>
+              <td>{{contributor.address}}</td>
+              <td>{{contributor.cellphone}}</td>
+              <td>{{contributor.birthDate | date:'dd/MM/yyyy'}}</td>
+              <td>{{contributor.marriageDate | date:'dd/MM/yyyy'}}</td>
+              <td data-ng-show="!vm.readOnly">
+                <span class="glyphicon glyphicon-pencil" role="button" aria-hidden="true"
+                      data-ui-sref="application.contributor.register({idContributor: contributor.id})">
+                </span>
+              </td>
+              <td data-ng-show="!vm.readOnly">
+                <span class="glyphicon glyphicon-trash" role="button" aria-hidden="true"
+                      data-ng-click="vm.setContributorToDelete(contributor.id, $index);vm.openDeleteConfirmationModal();">
+                </span>
+              </td>
+            </tr>
+            <tr data-ng-show="vm.contributors.length === 0">
+              <td colspan="7">
+                {{ 'application.contributor.catalog.table.contributor.message.empty' | translate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <dir-pagination-controls data-boundary-links="true" data-direction-links="true" ></dir-pagination-controls>
+      </div>
+      <div class="form-group col-xs-4 col-sm-3 col-md-2 col-lg-2 padding0-left">
+        <select id="contributorRegisterFieldDownloadUrl" name="contributorRegisterFieldDownloadUrl"
+          class="form-control" data-ng-change="vm.contributorRegisterFieldDownloadUrlOnChange()"
+          data-ng-model="vm.download.option">
+            <option value="">
+              {{ 'application.contributor.label.download.default' | translate }}
+            </option>
+            <option data-ng-repeat="url in vm.downloadUrls" value="{{url.value}}">
+              {{url.label | translate}}
+            </option>
+          </select>
+        </div>
+        <div class="form-group col-xs-4 col-sm-2 col-sm-2 col-md-2 col-lg-2 padding0">
+          <a class="btn btn-secondary" target="_blank" role="button"
+          data-ng-href="{{vm.download.url}}" data-ng-disabled="vm.isDownloadButtonDisabled()">
+          {{ 'application.contributor.catalog.button.download' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

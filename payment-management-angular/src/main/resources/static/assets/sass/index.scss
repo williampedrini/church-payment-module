@@ -1,0 +1,321 @@
+$colorDarkBrown: #2E1E06;
+$colorMediumBrown: #482C01;
+$colorMediumBrownBG: rgba(72, 44, 1, 0.2);
+$colorLightBrown: #AD5400;
+$colorLightBrownBG: rgba(209, 130, 0, 0.3);
+$colorLighterBrown: #D18200;
+$colorYellow: #FDD400;
+$colorOrange: #F26500;
+$colorWhite: #fff;
+$colorBlack: #000;
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0px;
+  margin: 0px;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+body {
+  font-family: Arial, sans-serif;
+  color: $colorBlack;
+  background-color: $colorWhite;
+  box-sizing: border-box;
+  position: relative;
+  margin: 0;
+  padding-bottom: 60px;
+  min-height: 100%;
+  position: relative;
+  font-size: 12px !important;
+}
+
+header {
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+  }
+
+  .navbar-default {
+    background-color: $colorMediumBrown;
+    border-color: transparent;
+    height: 90px;
+  }
+
+  .navbar-brand {
+    height: auto;
+    padding: 0 30px;
+    margin-left: 0;
+
+    img {
+      width: 70%;
+    }
+  }
+
+  .navbar-nav, .navbar-nav > li {
+    font-size: 13px;
+    text-transform: uppercase;
+    background-color: $colorMediumBrown;
+  }
+
+  .navbar-nav {
+    height: 8.9rem;
+    margin: 0 -15px;
+  }
+
+  .navbar-collapse.in {
+    min-height: 201px;
+    position: relative;
+    z-index: 3;
+    visibility: visible;
+  }
+
+  .navbar-default .navbar-nav > li > a,
+  .navbar-default .navbar-nav > li > a:hover {
+    color: $colorWhite;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    padding: 10px 20px;
+  }
+
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:focus,
+  .navbar-default .navbar-nav > .active > a:hover {
+    background-color: $colorLighterBrown;
+    color: $colorWhite;
+  }
+}
+
+.bgBrown {
+  background-color: $colorDarkBrown;
+}
+
+.container {
+  height: 100%;
+}
+
+.containerLogin {
+  padding: 15px;
+  margin: 0 auto;
+  background-color: $colorWhite;
+  border-radius: 8px;
+  transform: translateY(50%);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 !important;
+  color: $colorDarkBrown !important;
+}
+
+.space50-top {
+  margin-top: 50px;
+}
+
+.space15-right {
+  margin-right: 15px;
+}
+
+.btn-primary {
+  color: $colorYellow !important;
+  background-color: $colorMediumBrown !important;
+  border-color: $colorMediumBrown !important;
+}
+
+.btn-secondary {
+  color: $colorMediumBrown !important;
+  background-color: $colorLightBrownBG !important;
+  border-color: $colorLightBrownBG !important;
+}
+
+.form-control {
+  border-color: $colorMediumBrown !important;
+  background-color: $colorMediumBrownBG !important;
+  color: $colorMediumBrown !important;
+  font-size: 12px !important;
+}
+
+.form-inline .form-control {
+  width: 45% !important;
+}
+
+.input-group {
+  color: $colorMediumBrown !important;
+}
+
+.padding0 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.padding0-left {
+  padding-left: 0 !important;
+}
+
+.padding0-right {
+  padding-right: 0 !important;
+}
+
+.padding-right-10 {
+  padding-right: 10px;
+}
+
+.padding-top-5 {
+  padding-top: 5px !important;
+}
+
+.padding30-lat {
+  padding: 0 30px;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=date]::-webkit-clear-button,
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9,
+.col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9,
+.col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9,
+.col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+  min-height: 0 !important;
+}
+
+.glyphicon {
+  color: $colorMediumBrown;
+}
+
+.breadcrumb {
+  text-transform: uppercase;
+  background-color: $colorMediumBrownBG !important;
+  border-radius: 0 !important;
+
+  li:first-child {
+    margin-left: 7%;
+  }
+
+  > li + li:before {
+    color: $colorDarkBrown !important;
+  }
+
+  a, a:hover, a:focus, a:visited {
+    color: $colorDarkBrown;
+    text-decoration: none;
+  }
+}
+
+.table {
+  text-align: center;
+  color: $colorMediumBrown !important;
+
+  thead {
+    background-color: $colorLighterBrown;
+    color: $colorWhite;
+    font-size: 14px;
+    tr {
+      th {
+        text-align: center;
+        border-bottom-color: transparent !important;
+      }
+    }
+  }
+  tbody {
+    tr {
+      td {
+        border-bottom-color: transparent !important;
+      }
+    }
+  }
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: $colorLightBrownBG !important;
+}
+
+.pagination {
+  li {
+    a {
+      background-color: $colorOrange !important;
+      border-right-color: $colorWhite !important;
+      color: $colorWhite !important;
+      opacity: 0.8;
+    }
+  }
+}
+
+.messageWidth {
+  width: 95% !important;
+  margin: 0 auto !important;
+}
+
+.modal-header, .modal-body, .modal-footer {
+  border: none !important;
+}
+
+.modal-title {
+  display: inline-block;
+}
+
+.dateclass{
+  width: 100%;
+}
+
+.dateclass.placeholderclass::before{
+  width: 100%;
+  content: attr(placeholder);
+}
+
+.dateclass.placeholderclass:hover::before{
+  width: 0%;
+  content: "";
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: $colorMediumBrown;
+  color: $colorWhite;
+  clear: both;
+
+  .text-footer {
+    text-align: center;
+    padding: 20px 0;
+    margin: 0;
+  }
+}
+
+.required:after {
+  color: #e32;
+  content: '*';
+  display: inline;
+}
+
+.invalid {
+  color: #cc0000;
+}
+
+.filters {
+  background-color: #eee;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-nav, .navbar-nav > li {
+    height: 100%;
+  }
+  header {
+    .navbar-collapse.in {
+      min-height: auto;
+    }
+  }
+}
+
+a {
+  text-decoration: none !important;
+}

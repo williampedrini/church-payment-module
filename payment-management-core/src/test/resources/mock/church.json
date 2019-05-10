@@ -1,0 +1,17 @@
+{
+  "id": null,
+  "name": "Paróquia São Joaquim",
+  "campaigns": [
+    {
+      "id": 1,
+      "name": "Dízimo",
+      "creationDate": "2018-01-14",
+      "finalDate": null,
+      "provingType": {
+        "id": 1,
+        "name": "Bead",
+        "mnemonic": "BEA"
+      }
+    }
+  ]
+}

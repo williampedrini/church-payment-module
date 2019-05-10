@@ -1,0 +1,114 @@
+<section data-ng-init="vm.onInit()" class="container padding30-lat">
+  <div class="col-lg-12 text-center">
+    <h2>{{ 'application.contributor.register.title.titlePage' | translate }}</h2>
+  </div>
+  <form id="contributorRegisterForm" name="contributorRegisterForm"
+        data-ng-submit="contributorRegisterForm.$valid && vm.saveContributorOnClick()" novalidate>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldName" class="required">
+          {{ 'application.contributor.register.form.field.name' | translate }}
+        </label>
+        <input id="contributorRegisterFieldName" name="contributorRegisterFieldName" type="text" class="form-control"
+               data-ng-model="vm.contributor.name" data-ng-required="true">
+        <div data-ng-show="vm.hasError('contributorRegisterFieldName', 'required')" class="invalid">
+          {{ 'application.contributor.messages.name.empty' | translate }}
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldGender" class="required">
+          {{ 'application.contributor.register.form.field.gender' | translate }}
+        </label>
+        <div id="contributorRegisterFieldGender">
+          <label data-ng-repeat="gender in vm.genders" class="radio-inline">
+            <input name="contributorRegisterFieldGender" type="radio"
+            data-ng-model="vm.contributor.gender" value="{{gender.value}}"> {{gender.label | translate}}
+          </label>
+        </div>
+        <div data-ng-show="vm.genderFieldHasError()" class="invalid">
+          {{ 'application.contributor.messages.gender.empty' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldBirthDate">
+          {{ 'application.contributor.register.form.field.birthDate' | translate }}
+        </label>
+        <input id="contributorRegisterFieldBirthDate" name="contributorRegisterFieldBirthDate"
+               type="date" class="form-control" data-ng-model="vm.contributor.birthDate">
+        <div data-ng-show="vm.hasError('contributorRegisterFieldBirthDate', 'required')" class="invalid">
+          {{ 'application.contributor.messages.birthDate.empty' | translate }}
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldCivilState" class="required">
+          {{ 'application.contributor.register.form.field.civilState.label' | translate }}
+        </label>
+        <select id="contributorRegisterFieldCivilState" name="contributorRegisterFieldCivilState"
+                class="form-control" data-ng-model="vm.contributor.civilState" data-ng-required="true">
+          <option value="">
+            {{ 'application.contributor.register.form.field.civilState.default' | translate }}
+          </option>
+          <option data-ng-repeat="civilState in vm.civilStates" value="{{civilState.value}}">
+            {{civilState.label | translate}}
+          </option>
+        </select>
+        <div data-ng-show="vm.hasError('contributorRegisterFieldCivilState', 'required')" class="invalid">
+          {{ 'application.contributor.messages.civilState.empty' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldPartnerName">
+          {{ 'application.contributor.register.form.field.partnerName' | translate }}
+        </label>
+        <input id="contributorRegisterFieldPartnerName" type="text" class="form-control" data-ng-model="vm.contributor.partnerName">
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <label for="contributorRegisterFieldMarriageDate">
+            {{ 'application.contributor.register.form.field.marriageDate' | translate }}
+          </label>
+          <input id="contributorRegisterFieldMarriageDate" type="date" class="form-control"
+                 data-ng-model="vm.contributor.marriageDate">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldAddress" class="required">
+          {{ 'application.contributor.register.form.field.address' | translate }}
+        </label>
+        <input id="contributorRegisterFieldAddress" name="contributorRegisterFieldAddress" type="text" class="form-control"
+               data-ng-model="vm.contributor.address" data-ng-required="true">
+        <div data-ng-show="vm.hasError('contributorRegisterFieldAddress', 'required')" class="invalid">
+          {{ 'application.contributor.messages.address.empty' | translate }}
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldTelephone">
+          {{ 'application.contributor.register.form.field.telephone' | translate }}
+        </label>
+        <input id="contributorRegisterFieldTelephone" type="number" class="form-control" data-ng-model="vm.contributor.telephone">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="contributorRegisterFieldCellphone">
+          {{ 'application.contributor.register.form.field.cellphone' | translate }}
+        </label>
+        <input id="contributorRegisterFieldCellphone" type="number" class="form-control" data-ng-model="vm.contributor.cellphone">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group pull-right">
+          <button class="btn btn-primary" type="submit">
+            {{ 'application.contributor.register.form.button.saveContributor' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <bead-catalog data-ng-show="vm.isBeadTableToBeShown()" data-contributor="vm.contributor" data-beads="vm.contributor.beads._embeddedItems"></bead-catalog>
+</section>

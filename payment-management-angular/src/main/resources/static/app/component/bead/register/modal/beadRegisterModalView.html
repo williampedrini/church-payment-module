@@ -1,0 +1,56 @@
+<!-- BEGIN EDIT/CREATION BEAD MODAL -->
+<section data-ng-init="vm.onInit()">
+
+    <form id="beadRegisterForm" name="beadRegisterForm" role="form"
+          data-ng-submit="beadRegisterForm.$valid && vm.confirmationOnClick()" novalidate>
+
+        <div class="modal-header">
+            <h4 class="modal-title">
+                {{ 'application.bead.register.label.title' | translate }}
+            </h4>
+            <button type="button" class="close" data-ng-click="vm.closeOnClick()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label for="beadRegisterFieldIdentificationNumber" class="required">
+                        {{ 'application.bead.register.form.field.identificationNumber' | translate }}
+                    </label>
+                    <input id="beadRegisterFieldIdentificationNumber" name="beadRegisterFieldIdentificationNumber" type="text" class="form-control"
+                           data-ng-model="vm.bead.identificationNumber" data-ng-required="true">
+                    <div data-ng-show="vm.hasError('beadRegisterFieldIdentificationNumber', 'required')" class="invalid">
+                        {{ 'application.bead.messages.identificationNumber.empty' | translate }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-xs-12">
+                    <label for="beadRegisterFieldCampaign" class="required">
+                        {{ 'application.bead.register.form.field.campaign' | translate }}
+                    </label>
+                    <select id="beadRegisterFieldCampaign" name="beadRegisterFieldCampaign" class="form-control"
+                            data-ng-options="campaign.id as campaign.name for campaign in vm.campaigns"
+                            data-ng-model="vm.bead.campaign.id" data-ng-required="true">
+                    </select>
+                    <div data-ng-show="vm.hasError('beadRegisterFieldCampaign', 'required')" class="invalid">
+                        {{ 'application.bead.messages.campaign.empty' | translate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-ng-click="vm.closeOnClick()">
+                {{ 'application.modal.button.cancel' | translate }}
+            </button>
+            <button class="btn btn-primary" data-dismiss="modal">
+                {{ 'application.modal.button.save' | translate }}
+            </button>
+        </div>
+    </form>
+</section>
+<!-- END EDIT/CREATION BEAD MODAL -->

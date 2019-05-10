@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html data-ng-app="paymentManagement" data-ng-controller="homeController" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <base href="/">
+    <!-- BEGIN APPLICATION STYLESHEET -->
+    <link rel="stylesheet" href="./build/style.css"/>
+    <!-- END APPLICATION STYLESHEET -->
+</head>
+<body>
+<section>
+    <header>
+        <navigation-menu></navigation-menu>
+    </header>
+</section>
+
+<section>
+    <ui-breadcrumb></ui-breadcrumb>
+</section>
+
+<section>
+    <message></message>
+</section>
+
+<section data-ui-view></section>
+
+<section>
+    <footer class="footer">
+        <div class="container">
+            <p class="text-footer">&copy; 2018 Copyright - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</section>
+
+<!-- BEGIN APPLICATION SCRIPTS -->
+<script type="text/javascript" src="./build/bundle.js"></script>
+<!-- END APPLICATION SCRIPTS -->
+</body>
+</html>

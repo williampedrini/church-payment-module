@@ -1,0 +1,41 @@
+<section data-ui-view>
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0 text-center">
+      <h2>{{ vm.title | translate }}</h2>
+    </div>
+    <div class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{ 'application.contribution.calculator.table.result.column.campaign' | translate }}</th>
+            <th>{{ 'application.contribution.calculator.table.result.column.monthYear' | translate }}</th>
+            <th>{{ 'application.contribution.calculator.table.result.column.total' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-show="vm.results.length > 0" data-dir-paginate="result in vm.results | itemsPerPage:10">
+          <td>{{result.campaign}}</td>
+          <td>{{result.period}}</td>
+          <td>{{result.total | brazilianCurrency:'R$':2:true}}</td>
+        </tr>
+        <tr data-ng-show="vm.results.length === 0">
+          <td colspan="8">
+            {{ 'application.contribution.calculator.table.result.message.empty' | translate }}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <dir-pagination-controls data-boundary-links="true" data-direction-links="true" ></dir-pagination-controls>
+    </div>
+    <div class="filters">
+      <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+        <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0">
+          <a class="btn btn-secondary" data-ng-href="{{vm.download.url}}" target="_blank" role="button"
+            data-ng-disabled="vm.isDownloadButtonDisabled()">
+            {{ 'application.contribution.calculator.button.download' | translate }}
+          </a>
+        </div>
+      </form>
+    </div>
+    </div>
+</section>

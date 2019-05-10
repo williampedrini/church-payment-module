@@ -1,0 +1,33 @@
+{
+  "id": null,
+  "creationDate": "2016-05-01",
+  "amount": 100,
+  "campaign": {
+    "id": 1,
+    "name": "Dízimo",
+    "creationDate": "2018-01-14",
+    "finalDate": null,
+    "church": {
+      "id": 1,
+      "name": "Paróquia São Joaquim"
+    },
+    "provingType": {
+      "id": 1,
+      "name": "Bead",
+      "mnemonic": "BEA"
+    }
+  },
+  "contributor": {
+    "id": 1,
+    "name": "William Custodio",
+    "fiscalNumber": 99999999999,
+    "gender": "MALE",
+    "civilState": "MARRIED",
+    "address": "Travessa da Giesta, 4, Lisboa",
+    "birthDate": "1989-03-23",
+    "marriageDate": "2016-05-01",
+    "partnerName": "Carolina Tavares Gaspar",
+    "telephone": 99999999,
+    "cellphone": 99999999
+  }
+}

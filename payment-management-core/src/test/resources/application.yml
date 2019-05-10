@@ -1,0 +1,27 @@
+###
+#   Database Settings
+###
+spring:
+  datasource:
+    url: jdbc:h2:mem:saojoaquim;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL
+    platform: h2
+    username: saojoaquim
+    password: saojoaquim
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: false
+        use_sql_comments: true
+        format_sql: true
+
+###
+#   Logging Settings
+###
+logging:
+    level:
+      root: INFO
+      org.hibernate: INFO

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<base href="/">
+	<!-- BEGIN APPLICATION STYLESHEET -->
+	<link rel="stylesheet" th:href="@{./build/style.css}"/>
+	<!-- END APPLICATION STYLESHEET -->
+</head>
+<body class="bgBrown">
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-sm-offset-3 col-md-offset-4 col-lg-offset-4">
+		<div class="containerLogin">
+			<form th:action="@{/login}" method="POST" class="form-group">
+				<h3 class="form-signin-heading">Bem-Vindo</h3>
+				<div th:if="${param.error}" class="alert alert-danger">
+					<a th:href="@{/login}" class="close">×</a>
+					<strong>Erro!</strong> Usuário ou senha inválidos.
+				</div>
+				<input id="username" name="username" type="text" th:placeholder="Usuário" class="form-control"/> <br/>
+				<input id="password" name="password" type="password" th:placeholder="Senha" class="form-control"/> <br/>
+				<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit" th:text="Login"></button>
+			</form>
+		</div>
+	</div>
+	<!-- BEGIN APPLICATION SCRIPTS -->
+	<script type="text/javascript" src="./build/bundle.js"></script>
+	<!-- END APPLICATION SCRIPTS -->
+</body>
+</html>

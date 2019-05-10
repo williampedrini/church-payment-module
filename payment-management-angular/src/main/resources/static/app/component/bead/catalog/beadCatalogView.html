@@ -1,0 +1,47 @@
+<section data-ui-view>
+    <div class="filters">
+        <form class="col-lg-12 padding0">
+            <div class="form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right padding0">
+                <button type="button" class="btn btn-primary pull-right"
+                   data-ng-disabled="vm.isAddBeadButtonDisabled()"
+                   data-ng-click="vm.openRegisterModal()">
+                    {{ 'application.bead.catalog.button.addBead' | translate }}
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{ 'application.bead.catalog.table.bead.column.identificationNumber' | translate }}</th>
+                <th>{{ 'application.bead.catalog.table.bead.column.campaign' | translate }}</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr data-ng-show="vm.beads.length > 0" data-dir-paginate="bead in vm.beads | itemsPerPage:10">
+                <td>{{bead.identificationNumber}}</td>
+                <td>{{bead.campaign.name}}</td>
+                <td>
+                    <span class="glyphicon glyphicon-pencil" role="button" aria-hidden="true"
+                          data-ng-click="vm.openRegisterModal(bead)">
+                    </span>
+                </td>
+                <td>
+                  <span class="glyphicon glyphicon-trash" role="button" aria-hidden="true"
+                        data-ng-click="vm.setBeadToDelete(bead.id, $index);vm.openDeleteConfirmationModal();">
+                  </span>
+                </td>
+            </tr>
+            <tr data-ng-show="vm.beads.length === 0">
+                <td colspan="4">
+                    {{ 'application.bead.catalog.table.bead.message.empty' | translate }}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <dir-pagination-controls data-boundary-links="true" data-direction-links="true" ></dir-pagination-controls>
+    </div>
+</section>

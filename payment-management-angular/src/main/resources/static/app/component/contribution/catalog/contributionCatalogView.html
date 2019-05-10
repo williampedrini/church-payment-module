@@ -1,0 +1,94 @@
+<section data-ui-view>
+  <div class="container">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+      <h2>{{ vm.title | translate }}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+      <div class="filters">
+        <form class="col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <input id="contributionCatalogFieldBeadNumber" type="text" class="form-control" data-ng-model="vm.filter.beadIdentificationNumber"
+                   placeholder="{{ 'application.contribution.catalog.form.field.bead.placeholder' | translate }}">
+          </div>
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <input id="contributionCatalogFieldCampaignName" type="text" class="form-control" data-ng-model="vm.filter.campaignName"
+                   placeholder="{{ 'application.contribution.catalog.form.field.campaign.placeholder' | translate }}">
+          </div>
+          <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0-left">
+            <input id="contributionCatalogFieldContributorName" type="text" class="form-control" data-ng-model="vm.filter.contributorName"
+                   placeholder="{{ 'application.contribution.catalog.form.field.contributor.placeholder' | translate }}">
+          </div>
+          <div class="form-group form-inline col-xs-12 col-sm-4 col-md-4 col-lg-4 padding0">
+            <input id="contributionCatalogFieldBeginCreationDate" type="date" step="0" class="form-control dateclass"
+                   data-ng-model="vm.filter.beginCreationDate">
+            {{ 'application.contribution.catalog.form.field.creationDateTo' | translate }}
+            <input id="contributionCatalogFieldEndCreationDate" type="date" class="form-control dateclass"
+                   data-ng-model="vm.filter.endCreationDate">
+          </div>
+          <div class="form-group col-xs-12 col-sm-3 col-md-2 col-lg-2 padding0">
+            <a class="btn btn-secondary" data-ng-click="vm.clearFilter()" role="button">
+              {{ 'application.contribution.catalog.button.clearFilter' | translate }}
+            </a>
+            <a class="btn btn-secondary" data-ng-click="vm.findAll(vm.filter)" role="button">
+              {{ 'application.contribution.catalog.button.filterContribution' | translate }}
+            </a>
+          </div>
+          <div data-ng-show="!vm.readOnly" class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0 pull-right">
+            <a id="contributionCatalogButtonAddContribution" class="btn btn-primary pull-right" data-ui-sref="application.contribution.register" role="button">
+              {{ 'application.contribution.catalog.button.addContribution' | translate }}
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-responsive col-xs-12 col-sm-12 col-md-12 col-lg-12 padding0">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.beadNumber' | translate }}</th>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.campaignName' | translate }}</th>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.contributorName' | translate }}</th>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.creationDate' | translate }}</th>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.amount' | translate }}</th>
+            <th>{{ 'application.contribution.catalog.table.contribution.column.observation' | translate }}</th>
+            <th data-ng-show="!vm.readOnly"></th>
+            <th data-ng-show="!vm.readOnly"></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr data-ng-show="vm.contributions.length > 0" data-dir-paginate="contribution in vm.contributions | itemsPerPage:10">
+            <td>{{contribution.bead.identificationNumber}}</td>
+            <td>{{contribution.campaign.name}}</td>
+            <td>{{contribution.contributor.name}}</td>
+            <td>{{contribution.creationDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{contribution.amount | brazilianCurrency:'R$':2:true}}</td>
+            <td>{{contribution.observation}}</td>
+            <td data-ng-show="!vm.readOnly">
+                <span class="glyphicon glyphicon-pencil" role="button" aria-hidden="true"
+                      data-ui-sref="application.contribution.register({idContribution: contribution.id})">
+                </span>
+            </td>
+            <td data-ng-show="!vm.readOnly">
+                <span class="glyphicon glyphicon-trash" role="button" aria-hidden="true"
+                      data-ng-click="vm.setContributionToDelete(contribution.id, $index);vm.openDeleteConfirmationModal();">
+                </span>
+            </td>
+          </tr>
+          <tr data-ng-show="vm.contributions.length === 0">
+            <td colspan="8">
+              {{ 'application.contribution.catalog.table.contribution.message.empty' | translate }}
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <dir-pagination-controls data-boundary-links="true" data-direction-links="true" ></dir-pagination-controls>
+      </div>
+      <div class="form-group col-xs-12 col-sm-2 col-md-2 col-lg-2 padding0">
+        <a id="contributionCatalogButtonDownload" class="btn btn-secondary" role="button" target="_blank"
+           data-ng-href="{{vm.download.url}}" data-ng-disabled="vm.isDownloadButtonDisabled()">
+          {{ 'application.contribution.catalog.button.download' | translate }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

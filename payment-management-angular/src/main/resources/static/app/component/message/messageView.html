@@ -1,0 +1,6 @@
+<div data-ng-show="vm.showMessages()" data-ng-repeat="message in vm.messages" class="container">
+    <div data-ng-class="vm.getClassByMessageType(message.type)" class="container messageWidth">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+        {{ message.key | translate }}
+    </div>
+</div>

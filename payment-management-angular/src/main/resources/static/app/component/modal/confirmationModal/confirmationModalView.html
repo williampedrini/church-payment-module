@@ -1,0 +1,29 @@
+<!-- BEGIN DELETION MODAL -->
+<section>
+    <form role="form">
+        <div class="modal-header">
+            <h4 class="modal-title">
+                {{ vm.title | translate }}
+            </h4>
+            <button type="button" class="close" data-ng-click="vm.closeOnClick()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="input-group">
+                <p>{{ vm.body | translate }}</p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-ng-click="vm.closeOnClick()">
+                {{ 'application.modal.button.cancel' | translate }}
+            </button>
+            <button class="btn btn-primary" data-ng-click="vm.confirmationOnClick();" data-dismiss="modal">
+                {{ 'application.modal.button.ok' | translate }}
+            </button>
+        </div>
+    </form>
+</section>
+<!-- END DELETION MODAL -->

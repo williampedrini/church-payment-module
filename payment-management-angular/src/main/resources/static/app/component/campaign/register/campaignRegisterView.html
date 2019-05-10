@@ -1,0 +1,83 @@
+<section data-ng-init="vm.onInit()" class="container padding30-lat">
+  <div class="col-xs-12 col-md-12 col-lg-12 text-center">
+    <h2>{{ 'application.campaign.register.title.titlePage' | translate }}</h2>
+  </div>
+  <form id="campaignRegisterForm" name="campaignRegisterForm"
+        data-ng-submit="campaignRegisterForm.$valid && vm.saveCampaignOnClick()" novalidate>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="campaignRegisterFieldName" class="required">
+          {{ 'application.campaign.register.form.field.name' | translate }}
+        </label>
+        <input id="campaignRegisterFieldName" name="campaignRegisterFieldName" type="text" class="form-control"
+               data-ng-model="vm.campaign.name" data-ng-required="true">
+        <div data-ng-show="vm.hasError('campaignRegisterFieldName', 'required')" class="invalid">
+          {{ 'application.campaign.messages.name.empty' | translate }}
+        </div>
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="campaignRegisterInitialDate" class="required">
+          {{ 'application.campaign.register.form.field.initialDate' | translate }}
+        </label>
+        <input id="campaignRegisterInitialDate" name="campaignRegisterInitialDate" type="date"
+               class="form-control" data-ng-model="vm.campaign.initialDate">
+        <div data-ng-show="vm.hasError('campaignRegisterInitialDate', 'required')" class="invalid">
+          {{ 'application.campaign.messages.initialDate.empty' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="campaignRegisterFinalDate">
+          {{ 'application.campaign.register.form.field.finalDate' | translate }}
+        </label>
+        <input id="campaignRegisterFinalDate" name="campaignRegisterFinalDate" type="date"
+               class="form-control" data-ng-model="vm.campaign.finalDate">
+      </div>
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="campaignRegisterChurch" class="required">
+          {{ 'application.campaign.register.form.field.church.label' | translate }}
+        </label>
+        <select id="campaignRegisterChurch" name="campaignRegisterChurch" class="form-control"
+                data-ng-options="church.id as church.name for church in vm.churches"
+                data-ng-model="vm.campaign.church.id" data-ng-required="true">
+          <option value="">
+            {{ 'application.campaign.register.form.field.church.default' | translate }}
+          </option>
+        </select>
+        <div data-ng-show="vm.hasError('campaignRegisterChurch', 'required')" class="invalid">
+          {{ 'application.campaign.messages.church.empty' | translate }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <label for="campaignRegisterProvingType" class="required">
+          {{ 'application.campaign.register.form.field.provingType.label' | translate }}
+        </label>
+        <select id="campaignRegisterProvingType" name="campaignRegisterProvingType" class="form-control"
+                data-ng-options="provingType.id as provingType.name for provingType in vm.provingTypes"
+                data-ng-model="vm.campaign.provingType.id"
+                data-ng-disabled="vm.isCampaignRegisterProvingTypeDisabled()"
+                data-ng-required="true">
+            <option value="">
+              {{ 'application.campaign.register.form.field.provingType.default' | translate }}
+            </option>
+        </select>
+        <div data-ng-show="vm.hasError('campaignRegisterProvingType', 'required')" class="invalid">
+          {{ 'application.campaign.messages.provingType.empty' | translate }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="form-group pull-right">
+          <button class="btn btn-primary" type="submit">
+            {{ 'application.campaign.register.form.button.saveCampaign' | translate }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

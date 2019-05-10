@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar payment-management-webapp/target/payment-management-webapp-1.0.0-SNAPSHOT.jar

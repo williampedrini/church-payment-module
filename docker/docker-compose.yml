@@ -1,0 +1,38 @@
+version: '3.6'
+services:
+  application:
+    build:
+      dockerfile: docker/application.dockerfile
+      context: ..
+      args:
+        JAR_FILE: payment-management-webapp/target/payment-management-webapp-1.0.0-SNAPSHOT.jar
+    image: paymentmanagement/application
+    container_name: application
+    environment:
+          - CLEARDB_DATABASE_URL=jdbc:mysql://database:3306/saojoaquim
+          - CLEARDB_DATABASE_USERNAME=PAYMENT-MANAGEMENT
+          - CLEARDB_DATABASE_PASSWORD=PAYMENT-MANAGEMENT
+    ports:
+      - "8080:8080"
+    networks:
+      - payment-management-network
+    depends_on:
+      - database
+  database:
+    build:
+      dockerfile: docker/database.dockerfile
+      context: ..
+    image: paymentmanagement/database
+    container_name: database
+    environment:
+      MYSQL_USER: PAYMENT-MANAGEMENT
+      MYSQL_PASSWORD: PAYMENT-MANAGEMENT
+      MYSQL_ROOT_PASSWORD: PAYMENT-MANAGEMENT
+      MYSQL_DATABASE: saojoaquim
+    ports:
+      - "3306:3306"
+    networks:
+      - payment-management-network
+networks:
+  payment-management-network:
+    driver: bridge

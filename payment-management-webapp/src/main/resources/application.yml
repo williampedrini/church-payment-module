@@ -1,0 +1,40 @@
+# ===================
+# = Spring Default Profile
+# ===================
+spring:
+  profiles:
+    active: prod
+
+# ===================
+# = Spring Data Rest
+# ===================
+  data:
+      rest:
+        basePath: api
+
+# ===============================
+# = Thymeleaf configurations
+# ===============================
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+
+# ==============================================================
+# = Spring Security / Queries for AuthenticationManagerBuilder
+# ==============================================================
+  security:
+    ignored-url: /build/**
+    role:
+      admin:
+        mnemonic: ADMIN
+        secured-api-url: /api/**
+    login:
+      url: /login
+      error-url: /login?error
+      success-url: /
+      access-denied-url: /errors/403
+    logout:
+      url: /api/logout
+    queries:
+      users: select username, password, active from user where username=?
+      roles: select u.username, r.role from user u inner join user_role ur on(u.id=ur.id_user) inner join role r on(ur.id_role=r.id) where u.username=?
