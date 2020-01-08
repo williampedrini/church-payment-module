@@ -1,5 +1,5 @@
 /* insert into role table */
-insert into `role` (role) values ('admin');
+insert into `role` (role) values ('ADMIN');
 
 /* insert into user table
    login: saojoaquim and password: saojoaquim */
