@@ -9,6 +9,11 @@ spring:
     password: ${CLEARDB_DATABASE_PASSWORD}
     driverClassName: com.mysql.jdbc.Driver
     initialize: false
+  tomcat:
+    max-active: 1
+    min-idle: 1
+    max-idle: 1
+    initial-size: 1
 
 # ==================
 # = Jpa / Hibernate
