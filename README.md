@@ -11,7 +11,7 @@ This project is a definition of an application for the management of payments as
 
 ### HOW TO CONFIGURE ###
 
-1. Import the project as maven project using an IDEA
+1. Import the project as maven project using an IDE
 2. For the edition of the entity-relationship model use the DB Designer.
 
 ### HOW TO RUN AS WEB APPLICATION (IN DEVELOPMENT MODE) ###
